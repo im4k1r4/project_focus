@@ -10,9 +10,9 @@ const startPauseBt = document.querySelector('#start-pause span')
 const startPauseIcon = document.querySelector('.app__card-primary-butto-icon')
 const musica = new Audio ('/sons/luna-rise-part-one.mp3')
 const musicaFocoInput = document.querySelector('#alternar-musica')
-const audioPlay = new Audio ('/sons/play.wav')
-const audioPause = new Audio ('/sons/pause.mp3')
-const audioTempoFinalizado = new Audio ('/sons/beep.mp3')
+const audioPlay = new Audio ('./sons/play.wav')
+const audioPause = new Audio ('./sons/pause.mp3')
+const audioTempoFinalizado = new Audio ('./sons/beep.mp3')
 
 let tempoEmSegundos = 1500
 let intervaloId = null
@@ -48,7 +48,7 @@ longoBt.addEventListener('click', ()=> {
 function alterarContexto(contexto) {
     mostrarTempo()
     html.setAttribute('data-contexto', contexto)
-    image.setAttribute('src', `/imagens/${contexto}.png`)
+    image.setAttribute('src', `./imagens/${contexto}.png`)
     buttons.forEach(function(contexto){
         contexto.classList.remove('active')
     })
@@ -95,13 +95,13 @@ function iniciarOuPausar(){
     audioPlay.play()
     intervaloId = setInterval(contagemRegressiva, 1000)
     startPauseBt.textContent = 'Pausar'
-    startPauseIcon.setAttribute('src', '/imagens/pause.png')
+    startPauseIcon.setAttribute('src', './imagens/pause.png')
 }
 
 function zerar(){
     clearInterval(intervaloId)
     startPauseBt.textContent = 'Começar'
-    startPauseIcon.setAttribute('src', '/imagens/play_arrow.png')
+    startPauseIcon.setAttribute('src', './imagens/play_arrow.png')
     intervaloId = null
 }
 
